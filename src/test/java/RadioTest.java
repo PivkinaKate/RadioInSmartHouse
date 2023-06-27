@@ -30,11 +30,11 @@ public class RadioTest {
     @Test
     public void TurnOfNextStation1() {
         Radio stat = new Radio();
-        stat.setStation(4);
+        stat.setStation(9);
 
         stat.nextStation1();
 
-        int expected = 5;
+        int expected = 0;
         int actual = stat.getStation();
         Assertions.assertEquals(expected,actual);
     }
@@ -42,11 +42,11 @@ public class RadioTest {
     @Test
     public void TurnOnPrevStation1() {
         Radio stat = new Radio();
-        stat.setStation(0);
+        stat.setStation(9);
 
         stat.prevStation();
 
-        int expected = 9;
+        int expected = 8;
         int actual = stat.getStation();
         Assertions.assertEquals(expected,actual);
     }

@@ -1,5 +1,6 @@
 public class Radio {
-    public int station;
+    private int station;
+    private int maxStation;
 
 
     public int getStation() {
@@ -19,29 +20,35 @@ public class Radio {
 
     public void nextStation1() {
         int nextStation = station;
-        if (nextStation > 9) {
+
+        if (nextStation < 9) {
+           station = nextStation + 1;
             return;
         }
         if (nextStation == 9) {
-            station = nextStation = -1;
+          station = nextStation = 0;
         }
-
-        station = nextStation + 1;
 
     }
 
     public void prevStation() {
         int prevStation = station;
-        if (prevStation > 9) {
+        if (prevStation >= 9) {
+            station = prevStation - 1;
             return;
         }
         if (prevStation == 0) {
-            station = prevStation = 10;
+            station = prevStation = 9;
         }
-        station = prevStation - 1;
     }
 
-    public int currentVolume;
+    public Radio() {
+        maxStation = 9;
+    }
+
+
+
+    private int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
