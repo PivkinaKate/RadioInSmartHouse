@@ -1,17 +1,26 @@
 public class Radio {
+
+    private int maxStation = 9;
+    private int minStation = 0;
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int station;
-    private int maxStation;
+    private int currentVolume;
 
 
     public int getStation() {
         return station;
     }
 
+    public int getMaxStation() {
+        return maxStation;
+    }
+
     public void setStation(int newStation) {
-        if (newStation > 9) {
+        if (newStation > maxStation) {
             return;
         }
-        if (newStation < 0) {
+        if (newStation < minStation) {
             return;
         }
         station = newStation;
@@ -21,77 +30,82 @@ public class Radio {
     public void nextStation1() {
         int nextStation = station;
 
-        if (nextStation < 9) {
-           station = nextStation + 1;
+        if (nextStation < maxStation) {
+            station = nextStation + 1;
             return;
         }
-        if (nextStation == 9) {
-          station = nextStation = 0;
+        if (nextStation == maxStation) {
+            station = nextStation = 0;
         }
 
     }
 
     public void prevStation() {
         int prevStation = station;
-        if (prevStation >= 9) {
-            station = prevStation - 1;
+        if (prevStation == minStation) {
+            station = prevStation = 9;
             return;
         }
-        if (prevStation == 0) {
-            station = prevStation = 9;
+            if (prevStation <= maxStation) {
+                station = prevStation - 1;
+                return;
+            }
+
         }
-    }
 
     public Radio() {
-        maxStation = 9;
-    }
-
-
-
-    private int currentVolume;
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-
-    public void setIncreaseVolume(int newIncreaseVolume) {
-        if (newIncreaseVolume <= 0) {
-            return;
+            maxStation = 9;
         }
-        if (newIncreaseVolume >= 100) {
-            return;
+
+
+        public int getCurrentVolume () {
+            return currentVolume;
         }
-        currentVolume = newIncreaseVolume;
-    }
 
-    public void setToMaxVolume() {
-        currentVolume = 100;
-    }
-
-    public void setToMinVolume() {
-        currentVolume = 0;
-    }
-
-
-    public void increaseVolume1() {
-        if (currentVolume < 100) {
-            currentVolume = currentVolume + 1;
+        public int getMaxVolume () {
+            return maxVolume;
         }
-        if (currentVolume >= 100) {
-            setToMaxVolume();
-        }
-    }
 
-    public void turnDownVolume() {
-        if (currentVolume <= 100) {
-            currentVolume = currentVolume - 1;
+
+        public void setIncreaseVolume ( int newIncreaseVolume){
+
+            if (newIncreaseVolume <= maxVolume) {
+                currentVolume = newIncreaseVolume;
+            }
+            if (newIncreaseVolume == minVolume) {
+                currentVolume = newIncreaseVolume;
+            }
+
         }
-        if (currentVolume <= 0) {
+
+        public void setToMaxVolume () {
+            currentVolume = maxVolume;
+        }
+
+        public void setToMinVolume () {
             currentVolume = 0;
         }
-    }
 
 
+        public void increaseVolumeOn1 () {
+            if (currentVolume >= minVolume) {
+                currentVolume = currentVolume + 1;
+            }
+            if (currentVolume >= maxVolume) {
+                currentVolume = maxVolume;
+                return;
+            }
+        }
+
+        public void turnDownVolume () {
+            if (currentVolume <= maxVolume) {
+                currentVolume = currentVolume - 1;
+            }
+            if (currentVolume <= minVolume) {
+                currentVolume = 0;
+            }
+        }
+
     }
+
 
