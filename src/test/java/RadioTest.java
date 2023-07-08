@@ -134,10 +134,6 @@ public class RadioTest {
         Assertions.assertEquals(expected,actual);
     }
 
-
-
-
-
     @Test
     public void TurnOnIncreaseVolume() {
         Radio volume = new Radio();
@@ -280,6 +276,18 @@ public class RadioTest {
         volume.turnDownVolume();
 
         int expected = 0;
+        int actual = volume.getCurrentVolume();
+        Assertions.assertEquals(expected,actual);
+
+    }
+    @Test
+    public void TestTurnDownVolume10() {
+        Radio volume = new Radio();
+        volume.setIncreaseVolume(10);
+
+        volume.turnDownVolume();
+
+        int expected = 9;
         int actual = volume.getCurrentVolume();
         Assertions.assertEquals(expected,actual);
 
