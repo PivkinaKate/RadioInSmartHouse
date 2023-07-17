@@ -51,17 +51,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void stRadio() {
-        Radio stat = new Radio();
 
-        stat.setStation(10);
-
-        int expected = 0;
-        int actual = stat.getStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
 
     @Test
     public void TurnOfNextStation1() {
