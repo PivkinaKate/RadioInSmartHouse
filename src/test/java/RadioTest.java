@@ -16,6 +16,33 @@ public class RadioTest {
     }
 
     @Test
+
+    public void TurnOnRadioStation10() {
+        Radio stat = new Radio();
+
+        stat.setStation(10);
+
+        int expected = 0;
+        int actual = stat.getStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+
+    public void TurnOnRadioStation_10() {
+        Radio stat = new Radio();
+
+        stat.setStation(-10);
+
+        int expected = 0;
+        int actual = stat.getStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
     public void TurnOnRadioStation1() {
         Radio stat = new Radio();
 
@@ -50,7 +77,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
 
 
     @Test
